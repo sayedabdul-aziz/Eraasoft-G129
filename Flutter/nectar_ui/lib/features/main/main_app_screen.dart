@@ -29,9 +29,9 @@ class _MainAppScreenState extends State<MainAppScreen> {
           color: Colors.white,
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.withOpacity(0.2),
+              color: Colors.grey.withValues(alpha: .2),
               blurRadius: 10,
-              offset: Offset(0, -2), // changes position of shadow
+              offset: Offset(0, -2),
             ),
           ],
         ),

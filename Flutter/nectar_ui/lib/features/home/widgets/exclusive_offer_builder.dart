@@ -32,12 +32,12 @@ class ExclusiveOfferBuilder extends StatelessWidget {
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
-              return ProductCart(model: products[index]);
+              return ProductCart(model: exProducts[index]);
             },
             separatorBuilder: (context, index) {
               return SizedBox(width: 15);
             },
-            itemCount: products.length,
+            itemCount: exProducts.length,
           ),
         ),
       ],

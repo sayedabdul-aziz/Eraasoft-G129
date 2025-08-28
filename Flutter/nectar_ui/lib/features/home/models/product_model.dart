@@ -14,7 +14,7 @@ class ProductModel {
   });
 }
 
-List<ProductModel> products = [
+List<ProductModel> exProducts = [
   ProductModel(
     id: 1,
     name: 'Apple',
@@ -49,5 +49,50 @@ List<ProductModel> products = [
     image: 'assets/images/apple.png',
     quantity: 1,
     price: 6.0,
+  ),
+];
+
+List<ProductModel> offerProducts = [
+  ProductModel(
+    id: 6,
+    name: 'Apple',
+    image: 'assets/images/apple.png',
+    quantity: 1,
+    price: 3.5,
+  ),
+  ProductModel(
+    id: 7,
+    name: 'Banana',
+    image: 'assets/images/banana.png',
+    quantity: 1,
+    price: 2.0,
+  ),
+  ProductModel(
+    id: 8,
+    name: 'Orange',
+    image: 'assets/images/apple.png',
+    quantity: 1,
+    price: 4.0,
+  ),
+  ProductModel(
+    id: 9,
+    name: 'Grapes',
+    image: 'assets/images/banana.png',
+    quantity: 1,
+    price: 5.0,
+  ),
+  ProductModel(
+    id: 10,
+    name: 'Mango',
+    image: 'assets/images/apple.png',
+    quantity: 1,
+    price: 6.0,
+  ),
+  ProductModel(
+    id: 11,
+    name: 'Grapes',
+    image: 'assets/images/banana.png',
+    quantity: 1,
+    price: 5.0,
   ),
 ];

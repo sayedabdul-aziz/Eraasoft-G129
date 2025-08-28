@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:nectar_ui/core/constants/app_images.dart';
 import 'package:nectar_ui/core/functions/naviagtion.dart';
 import 'package:nectar_ui/core/utils/colors.dart';
-import 'package:nectar_ui/features/main/main_app_screen.dart';
+import 'package:nectar_ui/features/welcome/welcome_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -19,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
     // delay with 3 sec and navigate to home screen
     Future.delayed(Duration(seconds: 3), () {
       // navigate to home screen
-      pushWithReplacement(context, const MainAppScreen());
+      pushWithReplacement(context, const WelcomeScreen());
     });
   }
 

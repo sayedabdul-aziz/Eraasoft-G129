@@ -15,7 +15,10 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         scaffoldBackgroundColor: AppColors.whiteColor,
-        appBarTheme: AppBarTheme(backgroundColor: AppColors.whiteColor),
+        appBarTheme: AppBarTheme(
+          backgroundColor: AppColors.whiteColor,
+          surfaceTintColor: Colors.transparent,
+        ),
         inputDecorationTheme: InputDecorationTheme(
           labelStyle: TextStyle(
             fontSize: 16,

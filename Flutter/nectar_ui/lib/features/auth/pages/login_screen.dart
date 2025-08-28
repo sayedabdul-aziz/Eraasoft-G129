@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:gap/gap.dart';
 import 'package:nectar_ui/core/constants/app_images.dart';
 import 'package:nectar_ui/core/functions/email_validation.dart';
 import 'package:nectar_ui/core/functions/naviagtion.dart';
@@ -8,6 +9,7 @@ import 'package:nectar_ui/core/widgets/custom_password_field.dart';
 import 'package:nectar_ui/core/widgets/custom_text_field.dart';
 import 'package:nectar_ui/core/widgets/main_button.dart';
 import 'package:nectar_ui/features/auth/pages/signup_screen.dart';
+import 'package:nectar_ui/features/main/main_app_screen.dart';
 
 // Wrap Column with Form Widget
 // create a form key and pass it to Form Widget
@@ -67,14 +69,14 @@ class _LoginScreenState extends State<LoginScreen> {
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Please enter your email';
-                      }else if (!validateEmail(value)) {
+                      } else if (!validateEmail(value)) {
                         return 'Please enter a valid email';
                       }
                       return null;
                     },
                     prefix: Icon(Icons.email, color: AppColors.primaryColor),
                   ),
-                  SizedBox(height: 20),
+                  Gap(20),
                   CustomPasswordField(
                     label: 'Password',
                     prefix: Icon(Icons.lock, color: AppColors.primaryColor),
@@ -96,7 +98,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     text: 'Login',
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
-                       ///// 
+                        pushAndRemoveUntil(context, MainAppScreen());
                       }
                     },
                   ),
@@ -134,5 +136,4 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
-  
 }
