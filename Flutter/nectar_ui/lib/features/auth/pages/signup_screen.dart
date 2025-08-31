@@ -10,8 +10,18 @@ import 'package:nectar_ui/features/auth/pages/login_screen.dart';
 
 // L>R>L>R>L>
 
-class SignUpScreen extends StatelessWidget {
+class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
+
+  @override
+  State<SignUpScreen> createState() => _SignUpScreenState();
+}
+
+class _SignUpScreenState extends State<SignUpScreen> {
+  var nameController = TextEditingController();
+  var emailController = TextEditingController();
+  var passwordController = TextEditingController();
+  var passwordConfirmationController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -51,22 +61,36 @@ class SignUpScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 40),
                 CustomTextField(
+                  controller: nameController,
                   label: 'Full Name',
                   prefix: Icon(Icons.person, color: AppColors.primaryColor),
                 ),
                 SizedBox(height: 20),
                 CustomTextField(
+                  controller: emailController,
                   label: 'Email',
                   prefix: Icon(Icons.email, color: AppColors.primaryColor),
                 ),
                 SizedBox(height: 20),
                 CustomPasswordField(
+                  controller: passwordController,
                   label: 'Password',
                   prefix: Icon(Icons.lock, color: AppColors.primaryColor),
                 ),
 
                 SizedBox(height: 40),
-                MainButton(text: 'SignUp', onPressed: () {}),
+                MainButton(
+                  text: 'SignUp',
+                  onPressed: () {
+                    pushWithReplacement(
+                      context,
+                      LoginScreen(
+                        email: emailController.text,
+                        password: passwordController.text,
+                      ),
+                    );
+                  },
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

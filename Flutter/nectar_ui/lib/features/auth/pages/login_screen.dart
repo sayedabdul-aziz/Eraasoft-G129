@@ -17,7 +17,10 @@ import 'package:nectar_ui/features/main/main_app_screen.dart';
 // check if form is valid when Button is pressed
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+  const LoginScreen({super.key, this.email, this.password});
+
+  final String? email;
+  final String? password;
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -25,6 +28,16 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   var formKey = GlobalKey<FormState>();
+  var emailController = TextEditingController();
+  var passwordController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    emailController.text = widget.email ?? "";
+    passwordController.text = widget.password ?? '';
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,6 +78,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   SizedBox(height: 40),
                   CustomTextField(
+                    controller: emailController,
                     label: 'Email',
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -78,6 +92,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   Gap(20),
                   CustomPasswordField(
+                    controller: passwordController,
                     label: 'Password',
                     prefix: Icon(Icons.lock, color: AppColors.primaryColor),
                   ),

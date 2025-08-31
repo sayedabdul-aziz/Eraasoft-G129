@@ -8,12 +8,14 @@ class CustomPasswordField extends StatefulWidget {
     this.hint,
     this.prefix,
     this.suffix,
+    this.controller,
   });
 
   final String? label;
   final String? hint;
   final Widget? prefix;
   final Widget? suffix;
+  final TextEditingController? controller;
 
   @override
   State<CustomPasswordField> createState() => _CustomPasswordFieldState();
@@ -24,6 +26,7 @@ class _CustomPasswordFieldState extends State<CustomPasswordField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: widget.controller,
       obscureText: obscureText,
       validator: (value) {
         if (value == null || value.isEmpty) {
