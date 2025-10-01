@@ -1,6 +1,7 @@
 import 'package:bookia/feature/auth/presentation/cubit/auth_cubit.dart';
 import 'package:bookia/feature/auth/presentation/login/page/login_screen.dart';
 import 'package:bookia/feature/auth/presentation/register/page/register_screen.dart';
+import 'package:bookia/feature/main/main_app_screen.dart';
 import 'package:bookia/feature/splash/splash_screen.dart';
 import 'package:bookia/feature/welcome/welcome_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,6 +12,7 @@ class Routes {
   static const String welcome = '/welcome';
   static const String login = '/login';
   static const String register = '/register';
+  static const String main = '/main';
 
   static GoRouter routes = GoRouter(
     // initialLocation: splashScreen,
@@ -37,6 +39,7 @@ class Routes {
           child: const RegisterScreen(),
         ),
       ),
+      GoRoute(path: main, builder: (context, state) => const MainAppScreen()),
     ],
   );
 }
