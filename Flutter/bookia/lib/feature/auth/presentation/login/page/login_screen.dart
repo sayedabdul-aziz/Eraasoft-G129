@@ -50,7 +50,7 @@ class LoginScreen extends StatelessWidget {
           goToBase(context, Routes.main);
         } else if (state is AuthErrorState) {
           pop(context);
-          showErrorDialog(context, state.message);
+          showMyDialog(context, state.message);
         }
       },
       child: Padding(
