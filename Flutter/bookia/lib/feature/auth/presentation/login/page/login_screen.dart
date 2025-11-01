@@ -10,6 +10,7 @@ import 'package:bookia/core/utils/text_styles.dart';
 import 'package:bookia/feature/auth/presentation/cubit/auth_cubit.dart';
 import 'package:bookia/feature/auth/presentation/cubit/auth_state.dart';
 import 'package:bookia/feature/auth/presentation/login/widgets/social_login.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
@@ -60,14 +61,11 @@ class LoginScreen extends StatelessWidget {
             key: cubit.formKey,
             child: Column(
               children: [
-                Text(
-                  'Welcome back! Glad to see you, Again!',
-                  style: TextStyles.styleSize30(),
-                ),
+                Text("login_header".tr(), style: TextStyles.styleSize30()),
                 Gap(30),
                 CustomTextField(
                   controller: cubit.emailController,
-                  hint: 'Enter your email',
+                  hint: "enter_email".tr(),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Please enter your email';
@@ -78,7 +76,7 @@ class LoginScreen extends StatelessWidget {
                 Gap(12),
                 PasswordTextField(
                   controller: cubit.passwordController,
-                  hint: 'Enter your password',
+                  hint: "enter_password".tr(),
 
                   validator: (value) {
                     if (value == null || value.isEmpty) {
@@ -96,7 +94,7 @@ class LoginScreen extends StatelessWidget {
                     ),
                     onPressed: () {},
                     child: Text(
-                      'Forgot Password?',
+                      "forget_password".tr(),
                       style: TextStyles.styleSize16(),
                     ),
                   ),

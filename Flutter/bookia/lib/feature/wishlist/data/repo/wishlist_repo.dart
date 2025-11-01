@@ -9,6 +9,7 @@ import 'package:bookia/feature/wishlist/data/models/wishlist_response/wishlist_r
 class WishlistRepo {
   static Future<WishlistResponse?> getWishlist() async {
     try {
+      log(SharedPref.getUserData()?.token.toString() ?? "Nooo token");
       var res = await DioProvider.get(
         endpoint: ApiEndpoints.wishlist,
         headers: {"Authorization": "Bearer ${SharedPref.getUserData()?.token}"},

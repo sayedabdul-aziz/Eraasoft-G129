@@ -1,6 +1,7 @@
 import 'package:bookia/core/utils/text_styles.dart';
 import 'package:bookia/feature/home/data/models/best_seller_response/product.dart';
 import 'package:bookia/feature/home/presentation/widgets/book_card.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -14,7 +15,7 @@ class BestSellerBuilder extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text("Best Seller", style: TextStyles.styleSize24()),
+        Text("best_seller".tr(), style: TextStyles.styleSize24()),
         Gap(15),
         GridView.builder(
           physics: NeverScrollableScrollPhysics(),

@@ -1,8 +1,10 @@
 import 'package:bookia/core/constants/app_images.dart';
+import 'package:bookia/core/functions/extension.dart';
 import 'package:bookia/feature/home/presentation/cubit/home_cubit.dart';
 import 'package:bookia/feature/home/presentation/cubit/home_state.dart';
 import 'package:bookia/feature/home/presentation/widgets/best_seller_builder.dart';
 import 'package:bookia/feature/home/presentation/widgets/home_slider.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -21,6 +23,12 @@ class HomeScreen extends StatelessWidget {
           title: SvgPicture.asset(AppImages.logoSvg, height: 30),
           actions: [
             IconButton(
+              onPressed: () {
+                context.setLocale(Locale(context.isArabic ? 'en' : 'ar'));
+              },
+              icon: Icon(Icons.language),
+            ),
+            IconButton(
               onPressed: () {},
               icon: SvgPicture.asset(AppImages.searchSvg),
             ),
@@ -38,7 +46,8 @@ class HomeScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     HomeSlider(sliders: cubit.sliders),
-                    Gap(20),
+                    // 20.h,
+                    const Gap(20),
                     BestSellerBuilder(books: cubit.products),
                   ],
                 ),

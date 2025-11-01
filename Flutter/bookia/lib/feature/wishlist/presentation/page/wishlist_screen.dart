@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 class WishlistScreen extends StatelessWidget {
   const WishlistScreen({super.key});
@@ -20,32 +21,33 @@ class WishlistScreen extends StatelessWidget {
         body: BlocBuilder<WishlistCubit, WishlistState>(
           builder: (context, state) {
             var cubit = context.read<WishlistCubit>();
-            if (state is! WishlistSuccessState) {
-              return const Center(child: CircularProgressIndicator());
-            }
+
             // after success state
             if (cubit.books.isEmpty) {
               return _emptyUI();
             }
-            return ListView.separated(
-              padding: const EdgeInsets.all(20),
-              itemCount: cubit.books.length,
-              separatorBuilder: (BuildContext context, int index) {
-                return Divider();
-              },
-              itemBuilder: (BuildContext context, int index) {
-                return WishlistCard(
-                  book: cubit.books[index],
-                  onDelete: () {
-                    cubit.removeFromWishlist(
-                      productId: cubit.books[index].id ?? 0,
-                    );
-                  },
-                  onRefresh: () {
-                    cubit.getWishlist();
-                  },
-                );
-              },
+            return Skeletonizer(
+              enabled: state is! WishlistSuccessState,
+              child: ListView.separated(
+                padding: const EdgeInsets.all(20),
+                itemCount: cubit.books.length,
+                separatorBuilder: (BuildContext context, int index) {
+                  return Divider();
+                },
+                itemBuilder: (BuildContext context, int index) {
+                  return WishlistCard(
+                    book: cubit.books[index],
+                    onDelete: () {
+                      cubit.removeFromWishlist(
+                        productId: cubit.books[index].id ?? 0,
+                      );
+                    },
+                    onRefresh: () {
+                      cubit.getWishlist();
+                    },
+                  );
+                },
+              ),
             );
           },
         ),

@@ -8,7 +8,12 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 class WishlistCard extends StatelessWidget {
-  const WishlistCard({super.key, required this.book, required this.onDelete, required this.onRefresh});
+  const WishlistCard({
+    super.key,
+    required this.book,
+    required this.onDelete,
+    required this.onRefresh,
+  });
 
   final WishlistProduct book;
   final Function() onDelete;
@@ -33,11 +38,11 @@ class WishlistCard extends StatelessWidget {
       },
       child: GestureDetector(
         onTap: () {
-          pushTo(context, Routes.details, extra: book.mapToProduct()).then(
-            (value) {
-             onRefresh();
-            },
-          );
+          pushTo(context, Routes.details, extra: book.mapToProduct()).then((
+            value,
+          ) {
+            onRefresh();
+          });
         },
         child: Container(
           height: 140,
@@ -57,6 +62,8 @@ class WishlistCard extends StatelessWidget {
                     height: 120,
                     width: 100,
                     fit: BoxFit.cover,
+                    errorWidget: (context, url, error) =>
+                        const Icon(Icons.error),
                   ),
                 ),
               ),

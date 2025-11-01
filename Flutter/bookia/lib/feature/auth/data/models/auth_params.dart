@@ -1,15 +1,13 @@
-// {
-//         "name": name,
-//         "email": "sayed123011@gmail.com",
-//         "password": "12345678",
-//         "password_confirmation": "12345678",
-//       }
+import 'dart:io';
+
+import 'package:dio/dio.dart';
 
 class AuthParams {
   String? name;
   String? email;
   String? password;
   String? confirmPassword;
+  File? image;
 
   AuthParams({this.name, this.email, this.password, this.confirmPassword});
 
@@ -30,4 +28,23 @@ class AuthParams {
       "password_confirmation": confirmPassword,
     };
   }
+
+  FormData toFormData() {
+    return FormData.fromMap({
+      "name": name,
+      "email": email,
+      "password": password,
+      "password_confirmation": confirmPassword,
+      "image": MultipartFile.fromFileSync(
+        image!.path,
+        filename: image!.path.split('/').last,
+      ),
+    });
+  }
 }
+
+// String convertIntoBase64(File file) {
+// List<int> imageBytes = file.readAsBytesSync();
+// String base64File = base64Encode(imageBytes);
+// return base64File;
+// }

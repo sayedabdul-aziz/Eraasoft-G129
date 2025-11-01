@@ -1,4 +1,6 @@
 import 'package:bookia/core/constants/app_fonts.dart';
+import 'package:bookia/core/functions/extension.dart';
+import 'package:bookia/core/routes/routes.dart';
 import 'package:bookia/core/utils/colors.dart';
 import 'package:bookia/core/utils/text_styles.dart';
 import 'package:flutter/material.dart';
@@ -6,7 +8,9 @@ import 'package:flutter/material.dart';
 class AppTheme {
   static ThemeData get lightTheme => ThemeData(
     scaffoldBackgroundColor: AppColors.whiteColor,
-    fontFamily: AppFonts.dmSerifFamily,
+    fontFamily: navigatorKey.currentContext?.isArabic ?? false
+        ? AppFonts.dmSerifFamily
+        : AppFonts.dmSerifFamily,
     appBarTheme: AppBarTheme(
       backgroundColor: AppColors.whiteColor,
       surfaceTintColor: Colors.transparent,

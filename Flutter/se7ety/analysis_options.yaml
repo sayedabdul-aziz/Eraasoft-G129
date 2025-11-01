@@ -1,0 +1,10 @@
+include: package:flutter_lints/flutter.yaml
+
+linter:
+  rules:
+    # Enable additional lint rules
+    # - prefer_const_constructors
+    # - avoid_print
+
+    # # Disable specific lint rules
+    # - avoid_single_cascade_in_expression_statements
