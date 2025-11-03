@@ -13,3 +13,11 @@ extension SizedBix on num {
   SizedBox get h => SizedBox(height: toDouble());
   SizedBox get w => SizedBox(width: toDouble());
 }
+
+extension PlatformExtension on BuildContext {
+  bool get isDesktopSize => MediaQuery.of(this).size.width >= 600;
+  bool get isTabletSize =>
+      MediaQuery.of(this).size.width >= 400 &&
+      MediaQuery.of(this).size.width < 600;
+  bool get isMobileSize => MediaQuery.of(this).size.width < 400;
+}

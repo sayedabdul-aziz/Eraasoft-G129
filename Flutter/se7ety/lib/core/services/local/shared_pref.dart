@@ -38,4 +38,10 @@ class SharedPref {
   static remove(String key) async {
     await pref.remove(key);
   }
+
+  // static clearUserData() async {
+  //   await pref.remove(kToken);
+  //   await pref.remove(kUserId);
+  //   await pref.remove(kUserType);
+  // }
 }

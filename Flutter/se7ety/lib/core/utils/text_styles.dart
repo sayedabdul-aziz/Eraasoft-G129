@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:se7ety/core/functions/extension.dart';
+import 'package:se7ety/core/routes/routes.dart';
 import 'package:se7ety/core/utils/colors.dart';
 
 class TextStyles {
-  static const TextStyle headline = TextStyle(
-    fontSize: 24,
+  static TextStyle headline = TextStyle(
+    fontSize: navigatorKey.currentContext!.isTabletSize ? 32 : 24,
     fontWeight: FontWeight.bold,
   );
 
