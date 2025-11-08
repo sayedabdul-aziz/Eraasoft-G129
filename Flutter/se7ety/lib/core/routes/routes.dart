@@ -10,6 +10,7 @@ import 'package:se7ety/features/auth/presentation/page/register_screen.dart';
 import 'package:se7ety/features/intro/onboarding/onboarding_screen.dart';
 import 'package:se7ety/features/intro/splash/splash_screen.dart';
 import 'package:se7ety/features/intro/welcome/welcome_screen.dart';
+import 'package:se7ety/features/patient/booking/presentation/booking_form_screen.dart';
 import 'package:se7ety/features/patient/home/presentation/page/home_search_screen.dart';
 import 'package:se7ety/features/patient/home/presentation/page/specialization_search_screen.dart';
 import 'package:se7ety/features/patient/main/nav_bar.dart';
@@ -29,6 +30,7 @@ class Routes {
   static const String specializationSearch = '/specializationSearch';
   static const String homeSearch = '/homeSearch';
   static const String doctorProfile = '/doctorProfile';
+  static const String bookingFormScreen = '/bookingFormScreen';
 
   static GoRouter routes = GoRouter(
     // initialLocation: splashScreen,
@@ -85,6 +87,11 @@ class Routes {
         path: doctorProfile,
         builder: (context, state) =>
             DoctorProfileScreen(doctorModel: state.extra as DoctorModel),
+      ),
+      GoRoute(
+        path: bookingFormScreen,
+        builder: (context, state) =>
+            BookingFormScreen(doctor: state.extra as DoctorModel),
       ),
     ],
   );

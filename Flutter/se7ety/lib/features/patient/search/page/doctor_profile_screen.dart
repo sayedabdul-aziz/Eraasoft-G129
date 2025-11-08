@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:se7ety/components/buttons/main_button.dart';
+import 'package:se7ety/core/routes/naviagtion.dart';
+import 'package:se7ety/core/routes/routes.dart';
 import 'package:se7ety/core/utils/colors.dart';
 import 'package:se7ety/core/utils/text_styles.dart';
 import 'package:se7ety/features/auth/models/doctor_model.dart';
@@ -189,7 +191,11 @@ class _DoctorProfileScreenState extends State<DoctorProfileScreen> {
           child: MainButton(
             text: 'احجز موعد الان',
             onPressed: () {
-              // pushTo(context, Routes.bookingScreen, extra: widget.doctorModel);
+              pushTo(
+                context,
+                Routes.bookingFormScreen,
+                extra: widget.doctorModel,
+              );
             },
           ),
         ),
